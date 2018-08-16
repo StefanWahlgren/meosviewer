@@ -48,12 +48,16 @@ namespace MeosViewer
 
         private void btnGoStr1Radio_Click(object sender, EventArgs e)
         {
+            var classList = GetClasses();
+            var teamList = GetTeams();
+
             resultViewStr1Radio.Clear();
             resultViewStr1Radio.GridLines = true;
             resultViewStr1Radio.View = View.Details;
             resultViewStr1Radio.Columns.Add("Sträcka", 50);
             resultViewStr1Radio.Columns.Add("Kontroll", 50);
             resultViewStr1Radio.Columns.Add("Lagnr", 50);
+            resultViewStr1Radio.Columns.Add("Klass", 50);
             resultViewStr1Radio.Columns.Add("Namn", 160);
             resultViewStr1Radio.Columns.Add("Lag", 260);
             resultViewStr1Radio.Columns.Add("Tid", 50);
@@ -97,7 +101,8 @@ namespace MeosViewer
                         var resList = new List<string>();
                         resList.Add(item.person.leg.ToString());
                         resList.Add(mopComplete.results.to.Replace("[", "").Replace("]", ""));
-                        resList.Add(item.name.id.ToString());
+                        resList.Add(teamList[item.name.id.ToString()]);
+                        resList.Add(classList[item.person.cls.ToString()]);
                         resList.Add(item.person.name.Value);
                         resList.Add(item.name.Value);
                         resList.Add(FormatTime(item.person.rt));
@@ -112,6 +117,58 @@ namespace MeosViewer
                     }
                 }
             }
+        }
+
+        private Dictionary<string, string> GetClasses() {
+            var classList = new Dictionary<string, string>();
+            var client = new WebClient();
+            var response = client.DownloadString(txtBox_base_str1radio.Text + "?get=class");
+
+            if (string.IsNullOrEmpty(response))
+            {
+                return classList;
+            }
+
+            var serializer = new XmlSerializer(typeof(MOPComplete));
+            var encoding = Encoding.GetEncoding("ISO-8859-1");
+            var buffer = encoding.GetBytes(response);
+            using (var stream = new MemoryStream(buffer))
+            {
+                var mopComplete = (MOPComplete)serializer.Deserialize(stream);
+
+                foreach (var cls in mopComplete.cls)
+                {
+                    classList.Add(cls.id.ToString(), cls.Value);
+                }
+            }
+
+            return classList;
+        }
+
+        private Dictionary<string, string> GetTeams() {
+            var teamList = new Dictionary<string, string>();
+            var client = new WebClient();
+            var response = client.DownloadString(txtBox_base_str1radio.Text + "?get=team");
+
+            if (string.IsNullOrEmpty(response))
+            {
+                return teamList;
+            }
+
+            var serializer = new XmlSerializer(typeof(MOPComplete));
+            var encoding = Encoding.GetEncoding("ISO-8859-1");
+            var buffer = encoding.GetBytes(response);
+            using (var stream = new MemoryStream(buffer))
+            {
+                var mopComplete = (MOPComplete)serializer.Deserialize(stream);
+
+                foreach (var tm in mopComplete.tm)
+                {
+                    teamList.Add(tm.id.ToString(), tm.@base.bib.ToString());
+                }
+            }
+
+            return teamList;
         }
 
         private string FormatTime(ushort rt) {

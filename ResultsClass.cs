@@ -30,6 +30,284 @@ namespace MeosViewer
                 this.resultsField = value;
             }
         }
+
+        private MOPCompleteCls[] clsField;
+
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute("cls")]
+        public MOPCompleteCls[] cls
+        {
+            get
+            {
+                return this.clsField;
+            }
+            set
+            {
+                this.clsField = value;
+            }
+        }
+
+        private MOPCompleteTM[] tmField;
+
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute("tm")]
+        public MOPCompleteTM[] tm
+        {
+            get
+            {
+                return this.tmField;
+            }
+            set
+            {
+                this.tmField = value;
+            }
+        }
+    }
+
+    /// <remarks/>
+    [System.SerializableAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType = true, Namespace = "http://www.melin.nu/mop")]
+    public partial class MOPCompleteTM
+    {
+
+        private MOPCompleteTMBase baseField;
+
+        private string rField;
+
+        private uint idField;
+
+        /// <remarks/>
+        public MOPCompleteTMBase @base
+        {
+            get
+            {
+                return this.baseField;
+            }
+            set
+            {
+                this.baseField = value;
+            }
+        }
+
+        /// <remarks/>
+        public string r
+        {
+            get
+            {
+                return this.rField;
+            }
+            set
+            {
+                this.rField = value;
+            }
+        }
+
+        /// <remarks/>
+        [System.Xml.Serialization.XmlAttributeAttribute()]
+        public uint id
+        {
+            get
+            {
+                return this.idField;
+            }
+            set
+            {
+                this.idField = value;
+            }
+        }
+    }
+
+    /// <remarks/>
+    [System.SerializableAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType = true, Namespace = "http://www.melin.nu/mop")]
+    public partial class MOPCompleteTMBase
+    {
+
+        private ushort orgField;
+
+        private byte clsField;
+
+        private byte statField;
+
+        private uint stField;
+
+        private ushort rtField;
+
+        private byte bibField;
+
+        private string valueField;
+
+        /// <remarks/>
+        [System.Xml.Serialization.XmlAttributeAttribute()]
+        public ushort org
+        {
+            get
+            {
+                return this.orgField;
+            }
+            set
+            {
+                this.orgField = value;
+            }
+        }
+
+        /// <remarks/>
+        [System.Xml.Serialization.XmlAttributeAttribute()]
+        public byte cls
+        {
+            get
+            {
+                return this.clsField;
+            }
+            set
+            {
+                this.clsField = value;
+            }
+        }
+
+        /// <remarks/>
+        [System.Xml.Serialization.XmlAttributeAttribute()]
+        public byte stat
+        {
+            get
+            {
+                return this.statField;
+            }
+            set
+            {
+                this.statField = value;
+            }
+        }
+
+        /// <remarks/>
+        [System.Xml.Serialization.XmlAttributeAttribute()]
+        public uint st
+        {
+            get
+            {
+                return this.stField;
+            }
+            set
+            {
+                this.stField = value;
+            }
+        }
+
+        /// <remarks/>
+        [System.Xml.Serialization.XmlAttributeAttribute()]
+        public ushort rt
+        {
+            get
+            {
+                return this.rtField;
+            }
+            set
+            {
+                this.rtField = value;
+            }
+        }
+
+        /// <remarks/>
+        [System.Xml.Serialization.XmlAttributeAttribute()]
+        public byte bib
+        {
+            get
+            {
+                return this.bibField;
+            }
+            set
+            {
+                this.bibField = value;
+            }
+        }
+
+        /// <remarks/>
+        [System.Xml.Serialization.XmlTextAttribute()]
+        public string Value
+        {
+            get
+            {
+                return this.valueField;
+            }
+            set
+            {
+                this.valueField = value;
+            }
+        }
+    }
+
+    /// <remarks/>
+    [System.SerializableAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType = true, Namespace = "http://www.melin.nu/mop")]
+    public partial class MOPCompleteCls
+    {
+
+        private byte idField;
+
+        private ushort ordField;
+
+        private string radioField;
+
+        private string valueField;
+
+        /// <remarks/>
+        [System.Xml.Serialization.XmlAttributeAttribute()]
+        public byte id
+        {
+            get
+            {
+                return this.idField;
+            }
+            set
+            {
+                this.idField = value;
+            }
+        }
+
+        /// <remarks/>
+        [System.Xml.Serialization.XmlAttributeAttribute()]
+        public ushort ord
+        {
+            get
+            {
+                return this.ordField;
+            }
+            set
+            {
+                this.ordField = value;
+            }
+        }
+
+        /// <remarks/>
+        [System.Xml.Serialization.XmlAttributeAttribute()]
+        public string radio
+        {
+            get
+            {
+                return this.radioField;
+            }
+            set
+            {
+                this.radioField = value;
+            }
+        }
+
+        /// <remarks/>
+        [System.Xml.Serialization.XmlTextAttribute()]
+        public string Value
+        {
+            get
+            {
+                return this.valueField;
+            }
+            set
+            {
+                this.valueField = value;
+            }
+        }
     }
 
     /// <remarks/>
