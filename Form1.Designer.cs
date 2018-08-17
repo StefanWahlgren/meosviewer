@@ -33,6 +33,8 @@
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.tab3 = new System.Windows.Forms.TabControl();
             this.tabPage3 = new System.Windows.Forms.TabPage();
+            this.resultViewStr1Radio = new System.Windows.Forms.ListView();
+            this.lblInfoStr1Radio = new System.Windows.Forms.Label();
             this.btnGoStr1Radio = new System.Windows.Forms.Button();
             this.txtBox_url_str1radio = new System.Windows.Forms.TextBox();
             this.button1 = new System.Windows.Forms.Button();
@@ -102,9 +104,8 @@
             this.label19 = new System.Windows.Forms.Label();
             this.txtBox_base_str4goal = new System.Windows.Forms.TextBox();
             this.label20 = new System.Windows.Forms.Label();
-            this.lblInfoStr1Radio = new System.Windows.Forms.Label();
-            this.resultViewStr1Radio = new System.Windows.Forms.ListView();
             this.tabControl1.SuspendLayout();
+            this.tabPage1.SuspendLayout();
             this.tab3.SuspendLayout();
             this.tabPage3.SuspendLayout();
             this.tabPage4.SuspendLayout();
@@ -130,6 +131,8 @@
             // 
             // tabPage1
             // 
+            this.tabPage1.Controls.Add(this.lblInfoStr1Radio);
+            this.tabPage1.Controls.Add(this.resultViewStr1Radio);
             this.tabPage1.Location = new System.Drawing.Point(4, 22);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
@@ -163,13 +166,11 @@
             this.tab3.Location = new System.Drawing.Point(3, 2);
             this.tab3.Name = "tab3";
             this.tab3.SelectedIndex = 0;
-            this.tab3.Size = new System.Drawing.Size(1913, 1009);
+            this.tab3.Size = new System.Drawing.Size(1913, 64);
             this.tab3.TabIndex = 3;
             // 
             // tabPage3
             // 
-            this.tabPage3.Controls.Add(this.resultViewStr1Radio);
-            this.tabPage3.Controls.Add(this.lblInfoStr1Radio);
             this.tabPage3.Controls.Add(this.btnGoStr1Radio);
             this.tabPage3.Controls.Add(this.txtBox_url_str1radio);
             this.tabPage3.Controls.Add(this.button1);
@@ -179,10 +180,26 @@
             this.tabPage3.Location = new System.Drawing.Point(4, 22);
             this.tabPage3.Name = "tabPage3";
             this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage3.Size = new System.Drawing.Size(1905, 983);
+            this.tabPage3.Size = new System.Drawing.Size(1905, 38);
             this.tabPage3.TabIndex = 0;
             this.tabPage3.Text = "Sträcka1 - radio";
             this.tabPage3.UseVisualStyleBackColor = true;
+            // 
+            // resultViewStr1Radio
+            // 
+            this.resultViewStr1Radio.Location = new System.Drawing.Point(6, 24);
+            this.resultViewStr1Radio.Name = "resultViewStr1Radio";
+            this.resultViewStr1Radio.Size = new System.Drawing.Size(1881, 910);
+            this.resultViewStr1Radio.TabIndex = 10;
+            this.resultViewStr1Radio.UseCompatibleStateImageBehavior = false;
+            // 
+            // lblInfoStr1Radio
+            // 
+            this.lblInfoStr1Radio.AutoSize = true;
+            this.lblInfoStr1Radio.Location = new System.Drawing.Point(9, 8);
+            this.lblInfoStr1Radio.Name = "lblInfoStr1Radio";
+            this.lblInfoStr1Radio.Size = new System.Drawing.Size(0, 13);
+            this.lblInfoStr1Radio.TabIndex = 9;
             // 
             // btnGoStr1Radio
             // 
@@ -246,7 +263,7 @@
             this.tabPage4.Location = new System.Drawing.Point(4, 22);
             this.tabPage4.Name = "tabPage4";
             this.tabPage4.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage4.Size = new System.Drawing.Size(1905, 983);
+            this.tabPage4.Size = new System.Drawing.Size(1905, 27);
             this.tabPage4.TabIndex = 1;
             this.tabPage4.Text = "Sträcka1 - förvarning";
             this.tabPage4.UseVisualStyleBackColor = true;
@@ -259,6 +276,7 @@
             this.btnGoStr1Pre.TabIndex = 13;
             this.btnGoStr1Pre.Text = "Go";
             this.btnGoStr1Pre.UseVisualStyleBackColor = true;
+            this.btnGoStr1Pre.Click += new System.EventHandler(this.btnGoStr1Pre_Click);
             // 
             // txtBox_url_str1pre
             // 
@@ -312,7 +330,7 @@
             this.tabPage5.Location = new System.Drawing.Point(4, 22);
             this.tabPage5.Name = "tabPage5";
             this.tabPage5.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage5.Size = new System.Drawing.Size(1905, 983);
+            this.tabPage5.Size = new System.Drawing.Size(1905, 27);
             this.tabPage5.TabIndex = 2;
             this.tabPage5.Text = "Sträcka1 - vxl";
             this.tabPage5.UseVisualStyleBackColor = true;
@@ -378,7 +396,7 @@
             this.tabPage6.Location = new System.Drawing.Point(4, 22);
             this.tabPage6.Name = "tabPage6";
             this.tabPage6.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage6.Size = new System.Drawing.Size(1905, 983);
+            this.tabPage6.Size = new System.Drawing.Size(1905, 27);
             this.tabPage6.TabIndex = 3;
             this.tabPage6.Text = "Sträcka2 - radio";
             this.tabPage6.UseVisualStyleBackColor = true;
@@ -444,7 +462,7 @@
             this.tabPage7.Location = new System.Drawing.Point(4, 22);
             this.tabPage7.Name = "tabPage7";
             this.tabPage7.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage7.Size = new System.Drawing.Size(1905, 983);
+            this.tabPage7.Size = new System.Drawing.Size(1905, 27);
             this.tabPage7.TabIndex = 4;
             this.tabPage7.Text = "Sträcka2 - förvarning";
             this.tabPage7.UseVisualStyleBackColor = true;
@@ -510,7 +528,7 @@
             this.tabPage8.Location = new System.Drawing.Point(4, 22);
             this.tabPage8.Name = "tabPage8";
             this.tabPage8.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage8.Size = new System.Drawing.Size(1905, 983);
+            this.tabPage8.Size = new System.Drawing.Size(1905, 27);
             this.tabPage8.TabIndex = 5;
             this.tabPage8.Text = "Sträcka2 - vxl";
             this.tabPage8.UseVisualStyleBackColor = true;
@@ -576,7 +594,7 @@
             this.tabPage9.Location = new System.Drawing.Point(4, 22);
             this.tabPage9.Name = "tabPage9";
             this.tabPage9.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage9.Size = new System.Drawing.Size(1905, 983);
+            this.tabPage9.Size = new System.Drawing.Size(1905, 27);
             this.tabPage9.TabIndex = 6;
             this.tabPage9.Text = "Sträcka3 - förvarning";
             this.tabPage9.UseVisualStyleBackColor = true;
@@ -642,7 +660,7 @@
             this.tabPage10.Location = new System.Drawing.Point(4, 22);
             this.tabPage10.Name = "tabPage10";
             this.tabPage10.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage10.Size = new System.Drawing.Size(1905, 983);
+            this.tabPage10.Size = new System.Drawing.Size(1905, 27);
             this.tabPage10.TabIndex = 7;
             this.tabPage10.Text = "Sträcka3 - vxl";
             this.tabPage10.UseVisualStyleBackColor = true;
@@ -708,7 +726,7 @@
             this.tabPage11.Location = new System.Drawing.Point(4, 22);
             this.tabPage11.Name = "tabPage11";
             this.tabPage11.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage11.Size = new System.Drawing.Size(1905, 983);
+            this.tabPage11.Size = new System.Drawing.Size(1905, 27);
             this.tabPage11.TabIndex = 8;
             this.tabPage11.Text = "Sträcka4 - förvarning";
             this.tabPage11.UseVisualStyleBackColor = true;
@@ -774,7 +792,7 @@
             this.tabPage12.Location = new System.Drawing.Point(4, 22);
             this.tabPage12.Name = "tabPage12";
             this.tabPage12.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage12.Size = new System.Drawing.Size(1905, 983);
+            this.tabPage12.Size = new System.Drawing.Size(1905, 27);
             this.tabPage12.TabIndex = 9;
             this.tabPage12.Text = "Sträcka4 - Mål";
             this.tabPage12.UseVisualStyleBackColor = true;
@@ -829,22 +847,6 @@
             this.label20.TabIndex = 10;
             this.label20.Text = "Url:";
             // 
-            // lblInfoStr1Radio
-            // 
-            this.lblInfoStr1Radio.AutoSize = true;
-            this.lblInfoStr1Radio.Location = new System.Drawing.Point(15, 44);
-            this.lblInfoStr1Radio.Name = "lblInfoStr1Radio";
-            this.lblInfoStr1Radio.Size = new System.Drawing.Size(0, 13);
-            this.lblInfoStr1Radio.TabIndex = 9;
-            // 
-            // resultViewStr1Radio
-            // 
-            this.resultViewStr1Radio.Location = new System.Drawing.Point(12, 60);
-            this.resultViewStr1Radio.Name = "resultViewStr1Radio";
-            this.resultViewStr1Radio.Size = new System.Drawing.Size(1881, 911);
-            this.resultViewStr1Radio.TabIndex = 10;
-            this.resultViewStr1Radio.UseCompatibleStateImageBehavior = false;
-            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -856,6 +858,8 @@
             this.Text = "MEOSviewer";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.tabControl1.ResumeLayout(false);
+            this.tabPage1.ResumeLayout(false);
+            this.tabPage1.PerformLayout();
             this.tab3.ResumeLayout(false);
             this.tabPage3.ResumeLayout(false);
             this.tabPage3.PerformLayout();

@@ -1,0 +1,11 @@
+http://localhost:2009/meos
+?get=result&leg=1&to=32
+?get=result&leg=1&to=48
+?get=result&leg=1&to=100
+?get=result&leg=2&to=41
+?get=result&leg=2&to=48
+?get=result&leg=2&to=100
+?get=result&leg=3&to=48
+?get=result&leg=3&to=100
+?get=result&leg=4&to=48
+?get=result&leg=4&to=100
