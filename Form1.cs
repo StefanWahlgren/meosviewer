@@ -15,6 +15,9 @@ namespace MeosViewer
 {
     public partial class Form1 : Form
     {
+        private string activeTab = "tabPage3";
+        Timer timer = new Timer();
+
         public Form1()
         {
             InitializeComponent();
@@ -75,6 +78,24 @@ namespace MeosViewer
             txtBox_url_str4goal.Text = str4goal;
         }
 
+        private void tab3_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            TabPage current = (sender as TabControl).SelectedTab;
+
+            if (current.Name == "tabPage3") btnGoStr1Radio.PerformClick();
+            if (current.Name == "tabPage4") btnGoStr1Pre.PerformClick();
+            if (current.Name == "tabPage5") btnGoStr1Change.PerformClick();
+            if (current.Name == "tabPage6") btnGoStr2Radio.PerformClick();
+            if (current.Name == "tabPage7") btnGoStr2Pre.PerformClick();
+            if (current.Name == "tabPage8") btnGoStr2Change.PerformClick();
+            if (current.Name == "tabPage9") btnGoStr3Pre.PerformClick();
+            if (current.Name == "tabPage10") btnGoStr3Change.PerformClick();
+            if (current.Name == "tabPage11") btnGoStr4Pre.PerformClick();
+            if (current.Name == "tabPage12") btnGoStr4Goal.PerformClick();
+
+            activeTab = current.Name;
+        }
+
         private void btnGoStr1Radio_Click(object sender, EventArgs e)
         {
             LoadResult(txtBox_base_str1radio.Text, txtBox_url_str1radio.Text);
@@ -83,6 +104,46 @@ namespace MeosViewer
         private void btnGoStr1Pre_Click(object sender, EventArgs e)
         {
             LoadResult(txtBox_base_str1pre.Text, txtBox_url_str1pre.Text);
+        }
+
+        private void btnGoStr1Change_Click(object sender, EventArgs e)
+        {
+            LoadResult(txtBox_base_str1change.Text, txtBox_url_str1change.Text);
+        }
+
+        private void btnGoStr2Radio_Click(object sender, EventArgs e)
+        {
+            LoadResult(txtBox_base_str2radio.Text, txtBox_url_str2radio.Text);
+        }
+
+        private void btnGoStr2Pre_Click(object sender, EventArgs e)
+        {
+            LoadResult(txtBox_base_str2pre.Text, txtBox_url_str2pre.Text);
+        }
+
+        private void btnGoStr2Change_Click(object sender, EventArgs e)
+        {
+            LoadResult(txtBox_base_str2change.Text, txtBox_url_str2change.Text);
+        }
+
+        private void btnGoStr3Pre_Click(object sender, EventArgs e)
+        {
+            LoadResult(txtBox_base_str3pre.Text, txtBox_url_str3pre.Text);
+        }
+
+        private void btnGoStr3Change_Click(object sender, EventArgs e)
+        {
+            LoadResult(txtBox_base_str3change.Text, txtBox_url_str3change.Text);
+        }
+
+        private void btnGoStr4Pre_Click(object sender, EventArgs e)
+        {
+            LoadResult(txtBox_base_str4pre.Text, txtBox_url_str4pre.Text);
+        }
+
+        private void btnGoStr4Goal_Click(object sender, EventArgs e)
+        {
+            LoadResult(txtBox_base_str4goal.Text, txtBox_url_str4goal.Text);
         }
 
         private void LoadResult(string baseUrl, string extraPath) {
@@ -267,5 +328,30 @@ namespace MeosViewer
             return string.Format($"{((seconds / 60) % 60).ToString().PadLeft(2, '0')}:{(seconds % 60).ToString().PadLeft(2, '0')}");
         }
 
+        private void chkBoxAutoRefresh_CheckedChanged(object sender, EventArgs e)
+        {
+            if (chkBoxAutoRefresh.Checked)
+            {
+                timer.Interval = 2000;
+                timer.Tick += new EventHandler(timer_Tick);
+                timer.Start();
+            }
+            else {
+                timer.Stop();
+            }
+        }
+
+        private void timer_Tick(object sender, EventArgs e) {
+            if (activeTab == "tabPage3") btnGoStr1Radio.PerformClick();
+            if (activeTab == "tabPage4") btnGoStr1Pre.PerformClick();
+            if (activeTab == "tabPage5") btnGoStr1Change.PerformClick();
+            if (activeTab == "tabPage6") btnGoStr2Radio.PerformClick();
+            if (activeTab == "tabPage7") btnGoStr2Pre.PerformClick();
+            if (activeTab == "tabPage8") btnGoStr2Change.PerformClick();
+            if (activeTab == "tabPage9") btnGoStr3Pre.PerformClick();
+            if (activeTab == "tabPage10") btnGoStr3Change.PerformClick();
+            if (activeTab == "tabPage11") btnGoStr4Pre.PerformClick();
+            if (activeTab == "tabPage12") btnGoStr4Goal.PerformClick();
+        }
     }
 }
